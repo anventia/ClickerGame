@@ -21,7 +21,7 @@ final int OPTIONS = 4;
 PFont Montserrat;
 PFont MontserratMedium;
 
-color introBGColor = 240;
+float introBGColor = 240;
 
 void setup() {
   size(800, 800);

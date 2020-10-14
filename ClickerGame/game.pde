@@ -8,12 +8,21 @@ float targetYSpeed;
 
 int score;
 int lives;
+int highscore;
 
 
 void game() {
   introTheme.pause();
   gameTheme.play();
-  background(introBGColor);
+  introBGColor = map(lives, 1,10, 100,240);
+  if (lives == 1) {
+    fill(100);
+    stroke(0);
+    strokeWeight(20);
+    rect(400,400,800,800);
+  } else {
+    background(introBGColor);
+  }
 
   // Target
   fill(red,green,blue);
@@ -34,13 +43,13 @@ void game() {
   // Lives
   textFont(MontserratMedium);
   fill(#95CBFA);
-  textSize(25);
-  text("Lives: "+lives,600,45);
+  textSize(30);
+  text("Lives: "+lives,600,50);
   
   // Score
   fill(#95CBFA);
-  textSize(25);
-  text("Score: "+score,400,45);
+  textSize(30);
+  text("Score: "+score,400,50);
   textFont(Montserrat);
   
   // Movement
@@ -59,6 +68,9 @@ void game() {
 void gameClick() {
   if (dist(mouseX,mouseY, targetX,targetY) < targetSize/2) {  // click on target
     score += 1;
+    if (score > highscore) {
+      highscore = score;
+    }
     if (targetXSpeed > 0) {
       targetXSpeed += random(0.05,0.1);
     } else {
@@ -74,9 +86,10 @@ void gameClick() {
     mode = PAUSE;
   } else {  // lose a life
     lives -= 1;
+    
     if (lives == 0) {
+      introBGColor = 240;
       mode = GAMEOVER; 
-      resetGame();
     }
   }
   
@@ -93,4 +106,5 @@ void resetGame() {
 
   score = 0;
   lives = 10;
+  fadeIn = 0;
 }

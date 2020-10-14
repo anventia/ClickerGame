@@ -7,7 +7,7 @@ void intro() {
   introTheme.play();
   
   // Background
-  yOffset = -340+400-130;
+  yOffset = (-340+400)-130;
   lineColor = #8BA7FA;
   background(introBGColor);
   backgroundAnimation();
@@ -34,11 +34,12 @@ void intro() {
   text("Play", 400,465+yOffset);
   
   // Highscores
+  stroke(introBGColor);
   fill(buttonColor);
-  tactileRect(400,515+yOffset, 370,50, 3);
+  rect(400,515+yOffset, 370,50, 3);
   fill(0);
   textSize(30);
-  text("Highscores", 400,525+yOffset);
+  text("Highscore: "+highscore, 400,525+yOffset);
   
   // Options
   fill(buttonColor);
@@ -59,6 +60,9 @@ void introClick() {
   
   // Options
   if (mouseX > 400-370/2 && mouseX < 400+370/2 && mouseY > 575+yOffset-50/2 && mouseY < 575+yOffset+50/2) {
+    resetGame();
+    targetXSpeed = 2;
+    targetYSpeed = 3;
     mode = OPTIONS;
   }
 }
