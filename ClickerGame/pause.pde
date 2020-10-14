@@ -22,6 +22,7 @@ void pause() {
 
 void pauseClick() {
   if (mouseX > 740 && mouseX < 790 && mouseY > 10 && mouseY < 60) {  // Pause
+  gameTheme.play();
     mode = GAME;
   }
 }

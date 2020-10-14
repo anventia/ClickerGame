@@ -10,6 +10,8 @@ void mouseReleased() {
   } else if (mode == OPTIONS) {
     optionsClick(); 
   }
+  click.rewind();
+  click.play();
 }
 
 void mousePressed() {

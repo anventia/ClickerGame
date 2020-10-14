@@ -31,6 +31,7 @@ void setup() {
   minim = new Minim(this);
   introTheme = minim.loadFile("Crew.mp3");
   gameTheme = minim.loadFile("Tetris.mp3");
+  click = minim.loadFile("click.mp3");
   textFont(Montserrat);
   textAlign(CENTER);
   rectMode(CENTER);

@@ -70,6 +70,7 @@ void gameClick() {
       targetYSpeed -= random(0.05,0.1);
     }
   } else if (mouseX > 740 && mouseX < 790 && mouseY > 10 && mouseY < 60) {  // Pause
+    gameTheme.pause();
     mode = PAUSE;
   } else {  // lose a life
     lives -= 1;
